@@ -70,7 +70,7 @@ public class MemberArchive {
      * @param member Member to list.
      */
     public void listMember(BonusMember member){
-        System.out.println(member.getName());
+        System.out.println("" + member.getName() + " " + member.getMembership().getMembershipName() + " " +  member.getBonusPointsBalance());
     }
 
     /**
