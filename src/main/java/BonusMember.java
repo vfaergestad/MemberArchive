@@ -112,10 +112,10 @@ public class BonusMember {
      * Checks and sets the correct membership for the member.
      */
     private void checkAndSetMembership(){
-        if (bonusPointsBalance >= 75000){
+        if (bonusPointsBalance >= GOLD_LIMIT){
             membership = new GoldMembership();
         }
-        if (bonusPointsBalance < 75000 & bonusPointsBalance >= 25000){
+        else if (bonusPointsBalance >= SILVER_LIMIT){
             membership = new SilverMembership();
         }
         else {
