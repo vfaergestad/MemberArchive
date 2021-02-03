@@ -4,7 +4,7 @@ public class BonusMember {
 
     private int memberNumber;
     private LocalDate enrolledDate;
-    private int bonusPointsBalance = 0;
+    private int bonusPointsBalance;
     private String name;
     private String eMailAddress;
     private String password;
@@ -27,24 +27,6 @@ public class BonusMember {
         this.memberNumber = memberNumber;
         this.enrolledDate = enrolledDate;
         this.bonusPointsBalance = bonusPointsBalance;
-        this.name = name;
-        this.eMailAddress = eMailAddress;
-        this.password = password;
-        checkAndSetMembership();
-    }
-
-    /**
-     * Constructor for the class.
-     * @param memberNumber Membernumber as int.
-     * @param enrolledDate Enrolled date as LocalDate object.
-     * @param name Name of member as string.
-     * @param eMailAddress Member emailaddress as string.
-     * @param password Member password as String.
-     */
-    public BonusMember(int memberNumber, LocalDate enrolledDate, String name,
-                       String eMailAddress, String password){
-        this.memberNumber = memberNumber;
-        this.enrolledDate = enrolledDate;
         this.name = name;
         this.eMailAddress = eMailAddress;
         this.password = password;
