@@ -10,7 +10,7 @@ public class GoldMembership extends Membership{
      * @return Balance with new points added as int.
      */
     @Override
-    int registerPoints(int bonusPointBalance, int newPoints) {
+    public int registerPoints(int bonusPointBalance, int newPoints) {
         float newPointsFloat = Float.intBitsToFloat(newPoints);
         if (bonusPointBalance < 90000){
             return bonusPointBalance + Math.round(newPointsFloat*POINTS_SCALING_FACTOR_LEVEL_1);
@@ -24,7 +24,7 @@ public class GoldMembership extends Membership{
      * @return Membership name as string.
      */
     @Override
-    String getMembershipName() {
+    public String getMembershipName() {
         return "Gold";
     }
 }

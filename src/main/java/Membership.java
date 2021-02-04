@@ -8,11 +8,11 @@ public abstract class Membership {
      * @param bonusPointBalance Balance to add new points to.
      * @param newPoints New points to add to current balance.
      */
-    abstract int registerPoints(int bonusPointBalance, int newPoints);
+    public abstract int registerPoints(int bonusPointBalance, int newPoints);
 
     /**
      * Method that returns membership name.
      */
-    abstract String getMembershipName();
+    public abstract String getMembershipName();
 
 }

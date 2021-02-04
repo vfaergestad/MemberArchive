@@ -7,7 +7,7 @@ public class BasicMemberShip extends Membership {
      * @return Balance with new points added as int.
      */
     @Override
-    int registerPoints(int bonusPointBalance, int newPoints) {
+    public int registerPoints(int bonusPointBalance, int newPoints) {
         return bonusPointBalance + newPoints;
     }
 
@@ -16,7 +16,7 @@ public class BasicMemberShip extends Membership {
      * @return Membership name as string.
      */
     @Override
-    String getMembershipName() {
+    public String getMembershipName() {
         return "Basic";
     }
 }

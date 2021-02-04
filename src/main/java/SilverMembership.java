@@ -9,7 +9,7 @@ public class SilverMembership extends Membership{
      * @return Balance with new points added as int.
      */
     @Override
-    int registerPoints(int bonusPointBalance, int newPoints) {
+    public int registerPoints(int bonusPointBalance, int newPoints) {
         float newPointsFloat = Float.intBitsToFloat(newPoints);
         return bonusPointBalance + Math.round(newPointsFloat*POINTS_SCALING_FACTOR);
     }
@@ -19,7 +19,7 @@ public class SilverMembership extends Membership{
      * @return Membership name as string.
      */
     @Override
-    String getMembershipName() {
+    public String getMembershipName() {
         return "Silver";
     }
 }
