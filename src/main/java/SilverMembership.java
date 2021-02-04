@@ -10,7 +10,7 @@ public class SilverMembership extends Membership{
      */
     @Override
     public int registerPoints(int bonusPointBalance, int newPoints) {
-        float newPointsFloat = Float.intBitsToFloat(newPoints);
+        float newPointsFloat = (float) newPoints;
         return bonusPointBalance + Math.round(newPointsFloat*POINTS_SCALING_FACTOR);
     }
 

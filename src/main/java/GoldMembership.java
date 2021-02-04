@@ -11,7 +11,7 @@ public class GoldMembership extends Membership{
      */
     @Override
     public int registerPoints(int bonusPointBalance, int newPoints) {
-        float newPointsFloat = Float.intBitsToFloat(newPoints);
+        float newPointsFloat = (float) newPoints;
         if (bonusPointBalance < 90000){
             return bonusPointBalance + Math.round(newPointsFloat*POINTS_SCALING_FACTOR_LEVEL_1);
         } else {
