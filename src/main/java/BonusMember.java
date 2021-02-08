@@ -105,7 +105,6 @@ public class BonusMember {
     public void registerBonusPoints(int newPoints){
         bonusPointsBalance = membership.registerPoints(bonusPointsBalance, newPoints);
         checkAndSetMembership();
-
     }
 
     /**
