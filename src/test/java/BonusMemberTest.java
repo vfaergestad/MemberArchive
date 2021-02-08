@@ -36,7 +36,6 @@ class BonusMemberTest {
         assertEquals(member.getMembership().getMembershipName(), "Gold");
         member.registerBonusPoints(30000);
         member.registerBonusPoints(10000);
-
     }
 
     @Test
@@ -44,5 +43,4 @@ class BonusMemberTest {
         assertTrue(member.checkPassword("Baloo123"));
         assertFalse(member.checkPassword("Baloo1234"));
     }
-
 }
