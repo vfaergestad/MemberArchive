@@ -29,6 +29,9 @@ public class MemberArchive {
      */
     public boolean addMember(BonusMember bonusMember) {
         boolean success = false;
+        if (bonusMember == null){
+            return false;
+        }
         if (!members.containsKey(bonusMember.getMemberNumber())){
             members.put(bonusMember.getMemberNumber(), bonusMember);
             success = true;
