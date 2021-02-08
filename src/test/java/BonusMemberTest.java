@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -8,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class BonusMemberTest {
     static BonusMember member;
 
-    @BeforeAll
-    static void addMember(){
-        member = new BonusMember(1, LocalDate.now(),
+    @BeforeEach
+    void addMember(){
+        member = new BonusMember(1, LocalDate.of(2020, 2, 8),
                 10000, "Kajsa",
                 "kajsa@gmail.com", "Baloo123");
     }
@@ -22,6 +23,19 @@ class BonusMemberTest {
         assertEquals(member.getName(), "Kajsa");
         assertEquals(member.getEMailAddress(), "kajsa@gmail.com");
         assertEquals(member.getPassword(), "Baloo123");
+        assertEquals(member.getEnrolledDate(), LocalDate.of(2020, 2, 8));
+    }
+
+    @Test
+    void pointsHandling(){
+        assertEquals(member.getBonusPointsBalance(), 10000);
+        assertEquals(member.getMembership().getMembershipName(), "Basic" );
+        member.registerBonusPoints(15000);
+        assertEquals(member.getMembership().getMembershipName(), "Silver");
+        member.registerBonusPoints(50000);
+        assertEquals(member.getMembership().getMembershipName(), "Gold");
+        member.registerBonusPoints(30000);
+        member.registerBonusPoints(10000);
 
     }
 
@@ -31,11 +45,4 @@ class BonusMemberTest {
         assertFalse(member.checkPassword("Baloo1234"));
     }
 
-    @Test
-    void registerBonusPoints() {
-        assertEquals(member.getBonusPointsBalance(), 10000);
-        member.registerBonusPoints(10000);
-        assertEquals(member.getBonusPointsBalance(), 20000);
-
-    }
 }
