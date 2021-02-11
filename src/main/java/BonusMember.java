@@ -2,12 +2,12 @@ import java.time.LocalDate;
 
 public class BonusMember {
 
-    private int memberNumber;
-    private LocalDate enrolledDate;
+    private final int memberNumber;
+    private final LocalDate enrolledDate;
     private int bonusPointsBalance;
-    private String name;
-    private String eMailAddress;
-    private String password;
+    private final String name;
+    private final String eMailAddress;
+    private final String password;
     private Membership membership;
 
     private static final int SILVER_LIMIT = 25000;
@@ -23,13 +23,38 @@ public class BonusMember {
      * @param password Member password as String.
      */
     public BonusMember(int memberNumber, LocalDate enrolledDate, int bonusPointsBalance, String name,
-                       String eMailAddress, String password){
-        this.memberNumber = memberNumber;
+                       String eMailAddress, String password) throws IllegalArgumentException{
+        if (memberNumber > 0){
+            this.memberNumber = memberNumber;
+        } else {
+            throw new IllegalArgumentException("Invalid number.");
+        }
+
         this.enrolledDate = enrolledDate;
-        this.bonusPointsBalance = bonusPointsBalance;
-        this.name = name;
-        this.eMailAddress = eMailAddress;
-        this.password = password;
+
+        if (bonusPointsBalance > 0){
+            this.bonusPointsBalance = bonusPointsBalance;
+        } else {
+            throw new IllegalArgumentException("Invalid balance");
+        }
+
+        if (name != null){
+            this.name = name;
+        } else {
+            throw new IllegalArgumentException("Invalid name.");
+        }
+
+        if (eMailAddress != null){
+            this.eMailAddress = eMailAddress;
+        } else {
+            throw new IllegalArgumentException("Invalid eMailadress.");
+        }
+
+        if (password != null){
+            this.password = password;
+        } else {
+            throw new IllegalArgumentException("Invalid password");
+        }
         checkAndSetMembership();
     }
 
@@ -85,8 +110,8 @@ public class BonusMember {
      * Returns membership status.
      * @return Membership status as Membership object.
      */
-    public Membership getMembership() {
-        return membership;
+    public String getMembershipLevel() {
+        return membership.getMembershipName();
     }
 
     /**
