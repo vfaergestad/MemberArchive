@@ -74,7 +74,7 @@ public class MemberArchive {
      */
     public void listMember(BonusMember member){
         System.out.println("Name: " + member.getName());
-        System.out.println("Membership: " + member.getMembership().getMembershipName());
+        System.out.println("Membership: " + member.getMembershipLevel());
         System.out.println("Balance: " + member.getBonusPointsBalance());
         System.out.println();
     }
