@@ -29,11 +29,11 @@ class BonusMemberTest {
     @Test
     void pointsHandling(){
         assertEquals(member.getBonusPointsBalance(), 10000);
-        assertEquals(member.getMembership().getMembershipName(), "Basic" );
+        assertEquals(member.getMembershipLevel(), "Basic" );
         member.registerBonusPoints(15000);
-        assertEquals(member.getMembership().getMembershipName(), "Silver");
+        assertEquals(member.getMembershipLevel(), "Silver");
         member.registerBonusPoints(50000);
-        assertEquals(member.getMembership().getMembershipName(), "Gold");
+        assertEquals(member.getMembershipLevel(), "Gold");
         member.registerBonusPoints(30000);
         member.registerBonusPoints(10000);
     }
